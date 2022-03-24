@@ -1,5 +1,5 @@
-mleko
-leb
-sheker
-meso
-jajca
+mleko x 2
+leb x 3
+sheker x 1
+meso x 2
+jajca x 10
