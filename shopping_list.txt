@@ -1,5 +1,5 @@
 mleko x 2
-leb x 3
+leb x 2
 sheker x 1
 meso x 2
 jajca x 10
