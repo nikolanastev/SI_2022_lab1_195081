@@ -1,0 +1,130 @@
+git clone "https://github.com/nikolanastev/SI_2022_lab1_195081.git" Иницијализација на репозиториум локално
+cd SI_2022_lab1_195081
+git add .
+git commit -a -m "Add 5 items to the shopping list" -а flag за да се stage-ne фајлот, бидејќи е еден користам -a да не го пишувам самиот file, -m flag за да се напише commit порака.
+git commit -a -m "Add quantities to the shopping list" По додавањето на количина, иста постапка како горе.
+git branch branch1 Направи гранка branch1 
+git branch branch2 Направи гранка branch2
+
+git log :
+commit d514ee488ad61537bcfc795bda80585039e1a352 (HEAD -> master, branch2, branch1)
+Author: nikolanastev <68243750+nikolanastev@users.noreply.github.com>
+Date:   Thu Mar 24 03:31:10 2022 +0100
+
+    Add quantities to the items
+
+commit ea17413e59739bdc33fa0c0b5cd5281f64a5d0b5
+Author: nikolanastev <68243750+nikolanastev@users.noreply.github.com>
+Date:   Thu Mar 24 03:30:20 2022 +0100
+
+    Add 5 items to the shopping list
+
+commit d2a6a2062d713d8adebe8d4d36bd177dce81efb4 (origin/master, origin/HEAD)
+Author: nikolanastev <68243750+nikolanastev@users.noreply.github.com>
+Date:   Thu Mar 24 03:24:59 2022 +0100
+
+    update ime, prezime, indeks
+
+commit 3e3066037fee066524ec29c9f6133632ec07efbd
+Author: nikolanastev <68243750+nikolanastev@users.noreply.github.com>
+Date:   Thu Mar 24 03:24:42 2022 +0100
+
+    Initial commit
+
+
+git push Синхронизирање на гранките со оддалечениот репозиториум. git push ми е командата бидејќи го имам ставено git config --global push.default да ми е на current
+git push origin branch1 push на branch1 кон оддалечениот репозиториум
+git push origin branch2 push на branch2 кон оддалечениот репозиториум
+git checkout branch1 Префрли се на гранката branch1
+git commit -a -m "Change quantity of item #5" Комит на гранка branch1
+git checkout master Префрли се на гранката master
+git commit -a -m "Change quantity of item #2" Комит на гранка master
+git checkout branch1 Префрли на branch1
+git push Поради default push, префрлам на current
+git push origin branch1
+git push origin branch2
+git checkout branch2
+git commit -a -m "Modify item #4" Исто како горе, исти причини...
+
+git log:
+
+commit e8853fe8b3f8134578662c03ffdd4c3de00a35be (HEAD -> branch2)
+Author: nikolanastev <68243750+nikolanastev@users.noreply.github.com>
+Date:   Thu Mar 24 03:37:05 2022 +0100
+
+    Modify item #4
+
+commit d514ee488ad61537bcfc795bda80585039e1a352 (origin/branch2)
+Author: nikolanastev <68243750+nikolanastev@users.noreply.github.com>
+Date:   Thu Mar 24 03:31:10 2022 +0100
+
+    Add quantities to the items
+
+commit ea17413e59739bdc33fa0c0b5cd5281f64a5d0b5
+Author: nikolanastev <68243750+nikolanastev@users.noreply.github.com>
+Date:   Thu Mar 24 03:30:20 2022 +0100
+
+    Add 5 items to the shopping list
+
+commit d2a6a2062d713d8adebe8d4d36bd177dce81efb4
+Author: nikolanastev <68243750+nikolanastev@users.noreply.github.com>
+Date:   Thu Mar 24 03:24:59 2022 +0100
+
+    update ime, prezime, indeks
+
+commit 3e3066037fee066524ec29c9f6133632ec07efbd
+Author: nikolanastev <68243750+nikolanastev@users.noreply.github.com>
+Date:   Thu Mar 24 03:24:42 2022 +0100
+
+    Initial commit
+
+
+
+
+git commit -a --amend -m "Modify item #4 and add item #6" Со flag-ot --amend се зема последниот commit и се додаваат нови staged промени кон тој commit
+
+git log: 
+
+commit 7e3963fbc2ce9e4dd2fbdccc44eda5a633e655f7 (HEAD -> branch2)
+Author: nikolanastev <68243750+nikolanastev@users.noreply.github.com>
+Date:   Thu Mar 24 03:37:05 2022 +0100
+
+    Modify item #4 and add item #6
+
+commit d514ee488ad61537bcfc795bda80585039e1a352 (origin/branch2)
+Author: nikolanastev <68243750+nikolanastev@users.noreply.github.com>
+Date:   Thu Mar 24 03:31:10 2022 +0100
+
+    Add quantities to the items
+
+commit ea17413e59739bdc33fa0c0b5cd5281f64a5d0b5
+Author: nikolanastev <68243750+nikolanastev@users.noreply.github.com>
+Date:   Thu Mar 24 03:30:20 2022 +0100
+
+    Add 5 items to the shopping list
+
+commit d2a6a2062d713d8adebe8d4d36bd177dce81efb4
+Author: nikolanastev <68243750+nikolanastev@users.noreply.github.com>
+Date:   Thu Mar 24 03:24:59 2022 +0100
+
+    update ime, prezime, indeks
+
+commit 3e3066037fee066524ec29c9f6133632ec07efbd
+Author: nikolanastev <68243750+nikolanastev@users.noreply.github.com>
+Date:   Thu Mar 24 03:24:42 2022 +0100
+
+    Initial commit
+
+git checkout master Врати се на мастер
+git merge branch1 Спој branch1 со master
+git merge branch2 Спој branch2 со мастер
+git add shopping_list.txt 
+git commit -a -m "Fix merge"
+git add 195081.txt
+git push
+git push origin branch1
+git push origin branch2
+
+Се случува конфликт при merge na branch2 кон мастер, го решив merge conflict-ot со edit на фалјот shopping_list.txt. Во разликата ја избришав локалната верзија, т.е. HEAD кој се наоѓа на мастер, и ги оставив промените од branch2. Така промените од branch2 се нај up-to-date промени кој се спојуваат со master.
+Се користи 'ort' стратегија, што е вид на рекурзивен merge
+ 
